@@ -1,12 +1,10 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
 import '@/app/[lang]/globals.scss'
 import { Locale, i18n } from '@/i18n.config'
 import AuthProviders from '@/providers/AuthProvider'
 import Header from '@/components/Layouts/Header'
 import Footer from '@/components/Layouts/Footer'
 import Script from 'next/script'
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'IIT - Viện công nghệ & sáng tạo - SIU',
@@ -78,19 +76,15 @@ export default async function RootLayout({
 }) {
   return (
     <AuthProviders>
-      <html lang={params.lang}>
-        <body className={inter.className}>
-          <Header params={params} />
-          <section className='relative top-0 md:top-[5.5rem] lg:top-[6.7rem]'>{children}</section>
-          <Footer lang={params.lang} />
-          <Script
-            id='json-ld'
-            type='application/ld+json'
-            dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
-            strategy='lazyOnload'
-          />
-        </body>
-      </html>
+      <Header params={params} />
+      <section className='relative top-0 md:top-[5.5rem] lg:top-[6.7rem]'>{children}</section>
+      <Footer lang={params.lang} />
+      <Script
+        id='json-ld'
+        type='application/ld+json'
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(JSON_LD) }}
+        strategy='lazyOnload'
+      />
     </AuthProviders>
   )
 }
