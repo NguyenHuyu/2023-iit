@@ -1,6 +1,7 @@
 'use server'
 
 import { db } from '@/lib/database'
+import { News_Content_Response, News_Response } from '@/types/news.types'
 
 export async function getAllNews({ currentPage, currentfilter }: { currentPage: string; currentfilter?: string }) {
   const result = await db.news.findMany()
@@ -25,11 +26,13 @@ export async function getAllNews({ currentPage, currentfilter }: { currentPage: 
     }
   }
 
-  const response = {
-    content: paginatedNews.map((item) => ({
-      ...item,
-      id: item.id.toString()
-    })),
+  const dataContent: News_Content_Response[] = paginatedNews.map((item) => ({
+    ...item,
+    id: item.id.toString()
+  }))
+
+  const response: News_Response = {
+    content: dataContent,
     totalPages: totalPages,
     totalElements: result.length,
     size: pageSize,

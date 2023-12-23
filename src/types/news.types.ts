@@ -4,9 +4,8 @@ export interface News_Content_Response {
   imageUrl: string
   content: string
   description: string
-  createdAt: string
-  updatedAt: string
-  deletedAt: string
+  createdAt: string | Date
+  updatedAt: string | Date
 }
 
 export interface News_Response {

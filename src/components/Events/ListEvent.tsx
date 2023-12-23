@@ -13,7 +13,7 @@ type Props = {
   }
 }
 
-export default async function Upcoming({ data, params }: Props) {
+export default async function Event({ data, params }: Props) {
   const lang = params?.lang === 'vi' || params?.lang === 'en' ? params?.lang : 'en'
 
   const { page } = await getDictionary(lang)
@@ -38,9 +38,9 @@ export default async function Upcoming({ data, params }: Props) {
                     className='md:min-w-[200px] h-[150px] w-full object-cover lg:h-full lg:w-[200px] lg:p-[10px] lg:pr-0  hover:scale-105 duration-300'
                   />
                   <div className='flex flex-col p-[10px] w-[inherit] lg:w-full '>
-                    <p className='text-justify  text-[13px] '>{renderDate(item.createdAt)}</p>
-                    <p className='text-justify font-medium text-[20px] truncate-1'>{item.title}</p>
-                    <span className=' text-[16px] truncate-4 text-justify'>{item.description}</span>
+                    <p className='text-justify  text-[13px] '>{renderDate(item?.createdAt)}</p>
+                    <p className='text-justify font-medium text-[20px] truncate-1'>{item?.title}</p>
+                    <span className=' text-[16px] truncate-4 text-justify'>{item?.description}</span>
                     <Link
                       href={`${lang}/${slugify(item.title, { locale: 'vi', lower: true })}-${item.id}.html`}
                       itemScope

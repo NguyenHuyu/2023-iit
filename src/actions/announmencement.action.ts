@@ -1,6 +1,7 @@
 'use server'
 
 import { db } from '@/lib/database'
+import { Announcement_Content_Response, Announcement_Response } from '@/types/announcement.types'
 
 export async function getAllAnnounmencent({
   currentPage,
@@ -31,11 +32,13 @@ export async function getAllAnnounmencent({
     }
   }
 
-  const response = {
-    content: paginatedNews.map((item) => ({
-      ...item,
-      id: item.id.toString()
-    })),
+  const dataContent: Announcement_Content_Response[] = paginatedNews.map((item) => ({
+    ...item,
+    id: item.id.toString()
+  }))
+
+  const response: Announcement_Response = {
+    content: dataContent,
     totalPages: totalPages,
     totalElements: result.length,
     size: pageSize,

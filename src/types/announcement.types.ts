@@ -4,9 +4,8 @@ export interface Announcement_Content_Response {
   imageUrl: string
   content: string
   description: string
-  createdAt: string
-  updatedAt: string
-  deletedAt: string
+  createdAt: string | Date
+  updatedAt: string | Date
 }
 
 export interface Announcement_Response {

@@ -1,7 +1,7 @@
 /**
  * Render date
  */
-export const renderDate = (date: string): string => {
+export const renderDate = (date: string | Date): string => {
   const dateObject = new Date(date)
   const year = dateObject.getFullYear()
   const month = dateObject.getMonth() + 1 // Months are zero-based, so add 1

@@ -13,7 +13,7 @@ type Props = {
   }
 }
 
-export default async function Notify({ data, params }: Props) {
+export default async function Announcement({ data, params }: Props) {
   const { page } = await getDictionary(params.lang as 'vi' | 'en')
   return (
     <div className='md:w-[40%] lg:w-[30%] xl:w-[20%]'>

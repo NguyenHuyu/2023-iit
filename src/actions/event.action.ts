@@ -1,6 +1,7 @@
 'use server'
 
 import { db } from '@/lib/database'
+import { Event_Content_Response, Event_Response } from '@/types/event.types'
 
 export async function getAllEvent({ currentPage, currentfilter }: { currentPage: string; currentfilter?: string }) {
   const result = await db.event.findMany()
@@ -25,11 +26,13 @@ export async function getAllEvent({ currentPage, currentfilter }: { currentPage:
     }
   }
 
-  const response = {
-    content: paginatedNews.map((item) => ({
-      ...item,
-      id: item.id.toString()
-    })),
+  const dataContent: Event_Content_Response[] = paginatedNews.map((item) => ({
+    ...item,
+    id: item.id.toString()
+  }))
+
+  const response: Event_Response = {
+    content: dataContent,
     totalPages: totalPages,
     totalElements: result.length,
     size: pageSize,
