@@ -1,3 +1,5 @@
+import slugify from 'slugify'
+
 /**
  * Render date
  */
@@ -14,3 +16,25 @@ export const renderDate = (date: string | Date): string => {
 /**
   ---------------------------------------------------
   */
+
+/**
+ * Optimize slugify
+ * @param str
+ * @returns {string}
+ */
+export const optimizeSlugify = (str: string): string => {
+  return slugify(str, {
+    locale: 'vi',
+    lower: true
+  })
+}
+
+/**
+ * Get url params
+ * @param params
+ * @returns {string}
+ */
+
+export const getUrlParams = (params: string): string => {
+  return params.split('.html')[0].split('tagiit-')[1]
+}

@@ -45,7 +45,7 @@ const NavbarMobileItem = ({ params, data }: NavbarMobileProps) => (
             ))}
           </SheetDescription>
           <div className='flex flex-row md:gap-2 items-center '>
-            <LocaleSwitcher />
+            <LocaleSwitcher params={params} />
           </div>
         </SheetHeader>
       </SheetContent>

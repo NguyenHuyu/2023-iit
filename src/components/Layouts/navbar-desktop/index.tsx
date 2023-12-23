@@ -273,9 +273,7 @@ export default function Navbar({ params }: NavbarProps) {
         ))}
       </>
 
-      <div className='flex flex-row md:gap-2 items-center '>
-        <LocaleSwitcher />
-      </div>
+      <LocaleSwitcher params={params} />
     </>
   )
 }

@@ -43,3 +43,17 @@ export async function getAllEvent({ currentPage, currentfilter }: { currentPage:
 
   return response
 }
+
+export async function getEventById(ID: string) {
+  const result = await db.event.findUnique({
+    where: {
+      id: ID
+    }
+  })
+
+  if (!result) {
+    return null
+  }
+
+  return result
+}

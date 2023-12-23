@@ -5,7 +5,7 @@ const nextConfig = {
     NEXTAUTH_SECRET: '2342234234dfd'
   },
   images: {
-    domains: ['utfs.io']
+    domains: ['utfs.io', 'localhost']
   },
   typescript: {
     ignoreBuildErrors: true

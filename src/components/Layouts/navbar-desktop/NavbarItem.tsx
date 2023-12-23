@@ -2,11 +2,11 @@ import Link from 'next/link'
 import { ChevronDown, ChevronLeft } from 'lucide-react'
 
 interface Items {
-  label: string
-  href: string
+  label?: string
+  href?: string
   bg?: string
   pointer?: string
-  items: Items[]
+  items: Items[] | any[]
 }
 
 export interface NavbarDataProps {
@@ -37,7 +37,7 @@ const NavbarItem = ({ label, href, pointer, ghv, items }: NavbarDataProps) => (
             <li className='rounded-lg relative px-0.5 py-0.5 '>
               <button className='w-full text-left flex items-center outline-none focus:outline-none'>
                 <Link
-                  href={subItem.href}
+                  href={`${subItem.href}`}
                   className={`flex-1 ${subItem.pointer} text-[6px] md:text-[12px] lg:text-[14px] hover:text-[#187cfa]`}
                 >
                   {subItem.label}
@@ -52,7 +52,7 @@ const NavbarItem = ({ label, href, pointer, ghv, items }: NavbarDataProps) => (
                     key={subSubItem.href}
                     className='px-1 md:px-2 text-[5px] md:text-[12px] lg:text-[14px] py-0.5 cursor-pointer hover:text-[#187cfa]'
                   >
-                    <Link href={subSubItem.href}>{subSubItem.label}</Link>
+                    <Link href={`${subItem.href}`}>{subSubItem.label}</Link>
                   </li>
                 ))}
               </ul>

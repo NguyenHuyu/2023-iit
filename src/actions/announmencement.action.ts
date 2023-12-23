@@ -49,3 +49,17 @@ export async function getAllAnnounmencent({
 
   return response
 }
+
+export async function getAnnouncementById(ID: string) {
+  const result = await db.announcement.findUnique({
+    where: {
+      id: ID
+    }
+  })
+
+  if (!result) {
+    return null
+  }
+
+  return result
+}

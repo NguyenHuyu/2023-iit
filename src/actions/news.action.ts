@@ -43,3 +43,17 @@ export async function getAllNews({ currentPage, currentfilter }: { currentPage: 
 
   return response
 }
+
+export async function getNewsById(ID: string) {
+  const result = await db.news.findUnique({
+    where: {
+      id: ID
+    }
+  })
+
+  if (!result) {
+    return null
+  }
+
+  return result
+}

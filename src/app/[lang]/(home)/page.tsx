@@ -1,4 +1,5 @@
 import React from 'react'
+import type { Locale } from '@/i18n.config'
 
 // server actions
 import { getAllBanner } from '@/actions/banner.action'
@@ -12,7 +13,6 @@ import News from '@/components/News/ListNews'
 import Announcement from '@/components/Announcement/ListAnnouncement'
 import Event from '@/components/Events/ListEvent'
 import Middle from '@/components/Pages/Home/Middle'
-import { Locale } from '@/i18n.config'
 
 interface Props {
   searchParams: {
